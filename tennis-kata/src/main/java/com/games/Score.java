@@ -1,3 +1,4 @@
+package com.games;
 
 public class Score {
 	private static String[] scoreNames = new String []{ "Love", "Fifteen", "Thirty","Forty", "Deuce"};

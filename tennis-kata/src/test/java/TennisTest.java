@@ -9,6 +9,9 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 
+import com.games.TennisGame;
+import com.games.TennisGame3;
+
 @RunWith(Parameterized.class)
 public class TennisTest {
 

@@ -1,3 +1,4 @@
+package com.games;
 public class TennisGame1 implements TennisGame {
 
 	private int player1Score = 0;
