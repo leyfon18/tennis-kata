@@ -12,23 +12,34 @@ public class TennisGame3 implements TennisGame {
     }
 
     public String getScore() {
+    	String Player1ScoreName;
+    	String Player2ScoreName;
         String scoreDisplay;
         if (isSetNotEnd()) {
-            scoreDisplay = getScoreName(player1Score);
-            return isPair() ? scoreDisplay + "-All" : scoreDisplay + "-" + getScoreName(player2Score);
+            scoreDisplay = getFirstPlayerScore(player1Score);
+            return getFirstPlayerScore(player1Score)+getSecondPlayerScore();
         } else {
             if (isPair())
                 return "Deuce";
             scoreDisplay = player1Score > player2Score ? player1Name : player2Name;
-            return ((player1Score-player2Score)*(player1Score-player2Score) == 1) ? "Advantage " + scoreDisplay : "Win for " + scoreDisplay;
+            return isScoreDifferenceBelow2() ? "Advantage " + scoreDisplay : "Win for " + scoreDisplay;
         }
     }
+
+	private String getSecondPlayerScore() {
+//		if(this.player1Score + this.player2Score == 6)
+			return isPair() ? "-All" : "-" + getFirstPlayerScore(player2Score);
+	}
+
+	private boolean isScoreDifferenceBelow2() {
+		return (player1Score-player2Score)*(player1Score-player2Score) == 1;
+	}
 
 	private boolean isPair() {
 		return player1Score == player2Score;
 	}
 
-	private String getScoreName(int points) {
+	private String getFirstPlayerScore(int points) {
 		String[] scoreNames = new String[]{"Love", "Fifteen", "Thirty", "Forty"};
 		return scoreNames[points];
 	}
