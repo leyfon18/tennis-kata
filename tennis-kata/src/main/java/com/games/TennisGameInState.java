@@ -1,15 +1,23 @@
 package com.games;
 
-public class TennisGameInState implements TennisGame{
-	PointState
-	public void wonPoint(String playerName) {
-		// TODO Auto-generated method stub
+import com.pointstate.states.ParPointState;
+import com.pointstate.states.PointState;
+
+public class TennisGameInState implements TennisGame {
+	private PointState currentState;
+
+
+	public TennisGameInState(String p1, String p2) {
 		
+		currentState = new ParPointState(new Player(p1),new Player (p2));
+	}
+
+	public void wonPoint(String playerName) {
+		currentState = currentState.handleTransition(playerName);
 	}
 
 	public String getScore() {
-		// TODO Auto-generated method stub
-		return null;
+		return currentState.getStateName();
 	}
-
+		
 }

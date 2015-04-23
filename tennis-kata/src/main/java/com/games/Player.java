@@ -4,7 +4,7 @@ public class Player {
 	private String name;
 	Score score;
 	
-	Player(String name){
+	public Player(String name){
 		this.name = name;
 		this.score = new Score(0);
 	}
@@ -13,14 +13,26 @@ public class Player {
 		return name.equals(playerName);
 	}
 
-	public void wonPoint() {
+	public Player wonPoint() {
 		score.addPoint();
+		return this;
 	}
-
-	public boolean isPairWith(Player player2) {
-		return player2.getScore().equals(score);
+	public boolean equals(Player otherPlayer){
+		return this.name.equals(otherPlayer.getName());
 	}
-
+	public boolean isParWith(Player otherPlayer) {
+//		System.out.println("par  "+(otherPlayer.getScore().equals(score)&&score.asPoints()<3));
+		return otherPlayer.getScore().equals(score)&&score.asPoints()<3;
+	}
+	
+//	public boolean isDeuceWith(Player otherPlayer) {
+////		System.out.println("deu   "+(otherPlayer.getScore().equals(score)&&score.asPoints()>=3));
+//		return otherPlayer.getScore().equals(score)&&score.asPoints()>=3;
+//	}
+	public boolean hasMorethan3Points() {
+		return this.score.asPoints()>3;
+	}
+	
 	public Score getScore() {
 		return score;
 	}
@@ -28,8 +40,8 @@ public class Player {
 	public String getName() {
 		return name;
 	}
-
-	public boolean beats(Player player1) {
-		return score.beats(player1.getScore());
+	
+	public boolean hasMorePoints(Player player){
+		return this.getScore().asPoints()>player.getScore().asPoints();
 	}
 }

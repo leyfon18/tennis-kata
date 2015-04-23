@@ -10,7 +10,7 @@ import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 
 import com.games.TennisGame;
-import com.games.TennisGame3;
+import com.games.TennisGameInState;
 
 @RunWith(Parameterized.class)
 public class TennisTest {
@@ -84,19 +84,19 @@ public class TennisTest {
 
     @Test
     public void checkAllScoresTennisGame1() {
-        TennisGame game = new TennisGame3("player1", "player2");
+        TennisGame game = new TennisGameInState("player1", "player2");
         checkAllScores(game);
     }
 
     @Test
     public void checkAllScoresTennisGame2() {
-        TennisGame game = new TennisGame3("player1", "player2");
+        TennisGame game = new TennisGameInState("player1", "player2");
         checkAllScores(game);
     }
 
     @Test
     public void checkAllScoresTennisGame3() {
-        TennisGame game = new TennisGame3("player1", "player2");
+        TennisGame game = new TennisGameInState("player1", "player2");
         checkAllScores(game);
     }
 
