@@ -23,15 +23,13 @@ public class Player {
 	}
 
 	public boolean isParWith(Player otherPlayer) {
-		// System.out.println("par  "+(otherPlayer.getScore().equals(score)&&score.asPoints()<3));
 		return otherPlayer.getScore().equals(score) && score.asPoints() < 3;
 	}
 
-	// public boolean isDeuceWith(Player otherPlayer) {
-	// //
-	// System.out.println("deu   "+(otherPlayer.getScore().equals(score)&&score.asPoints()>=3));
-	// return otherPlayer.getScore().equals(score)&&score.asPoints()>=3;
-	// }
+	 public boolean isDeuceWith(Player otherPlayer) {
+
+	 return otherPlayer.getScore().equals(score)&&score.asPoints()>=3;
+	 }
 	public boolean hasMorethan3Points() {
 		return this.score.asPoints() > 3;
 	}
@@ -47,4 +45,5 @@ public class Player {
 	public boolean hasMorePoints(Player player) {
 		return this.getScore().asPoints() > player.getScore().asPoints();
 	}
+
 }

@@ -1,9 +1,9 @@
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import java.util.Arrays;
 import java.util.Collection;
 
-import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -73,7 +73,18 @@ public class TennisTest {
 				+ game.getScore());
 		assertEquals(this.expectedScore, game.getScore());
 	}
-
+	
+	@Test
+	public void checkFrom20_To_21(){
+		TennisGame game = new TennisGameInState("p1","p2");
+		
+		game.wonPoint("p1");
+		game.wonPoint("p1");
+		game.wonPoint("p2");
+		
+		assertEquals("Thirty-Fifteen",game.getScore());
+	}
+	
 	@Test
 	public void checkAllScoresTennisGame1() {
 		TennisGame game = new TennisGameInState("player1", "player2");

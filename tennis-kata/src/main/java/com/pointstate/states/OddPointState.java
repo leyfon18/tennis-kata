@@ -2,9 +2,9 @@ package com.pointstate.states;
 
 import com.games.Player;
 
-public class oddPointState extends PointState {
+public class OddPointState extends PointState {
 
-	public oddPointState(Player player1, Player player2) {
+	public OddPointState(Player player1, Player player2) {
 		super(player1, player2);
 
 	}
@@ -27,9 +27,9 @@ public class oddPointState extends PointState {
 		if (wonPointPlayer.equals(advanPlayer)) {
 			advanPlayer = wonPointPlayer;
 			return oddTransition(wonPointPlayer);
-		} else
-
+		} else {
 			return parTransition(wonPointPlayer);
+		}
 	}
 
 	private PointState oddTransition(Player wonPointPlayer) {
@@ -38,7 +38,7 @@ public class oddPointState extends PointState {
 			return new WonPointState(player1, player2);
 		else
 
-			return new oddPointState(player1, player2);
+			return new OddPointState(player1, player2);
 	}
 
 	// TODO test for that class.
@@ -46,15 +46,12 @@ public class oddPointState extends PointState {
 		if (wonPointPlayer.isParWith(advanPlayer))
 			// TODO new deuce state
 			return new ParPointState(player1, player2);
-		else
+		else if (wonPointPlayer.isDeuceWith(advanPlayer))
+			// TODO new par state
 			return new DeucePointState(player1, player2);
-		// else if(wonPointPlayer.isDeuceWith(advanPlayer))
-		// //TODO new par state
-		// return new DeucePointState(player1,player2);
-		// else
-		// //TODO new odd state
-		// return new oddPointState(player1,player2);
-		// }
-
+		else
+			// TODO new odd state
+			return new OddPointState(player1, player2);
 	}
+
 }

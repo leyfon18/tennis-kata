@@ -25,7 +25,7 @@ public class ParPointState extends PointState {
 			player1.wonPoint();
 		} else
 			player2.wonPoint();
-		return new oddPointState(player1, player2);
+		return new OddPointState(player1, player2);
 	}
 
 }
