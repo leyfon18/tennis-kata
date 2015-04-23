@@ -15,10 +15,8 @@ public class AdvantagePointState extends PointState {
 
 	@Override
 	public PointState handleTransition(String wonPointPlayerName) {
-		if (player1.hasName(wonPointPlayerName)) {
-			return transition(player1.wonPoint());
-		} else
-			return transition(player2.wonPoint());
+		Player player = playerWithName(wonPointPlayerName).wonPoint();
+		return transition(player);
 	}
 
 	private PointState transition(Player wonPointPlayer) {

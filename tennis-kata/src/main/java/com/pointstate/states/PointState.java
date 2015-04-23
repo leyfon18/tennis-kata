@@ -26,7 +26,7 @@ public abstract class PointState {
 	protected PointState(Player p1, Player p2) {
 		player1 = p1;
 		player2 = p2;
-		advanPlayer = morePointsPlayer();
+		advanPlayer = getAdvantagePlayer();
 		scoreStateName = calculateScoreName();
 	}
 
@@ -38,11 +38,18 @@ public abstract class PointState {
 		return scoreStateName;
 	}
 
-	public Player morePointsPlayer() {
+	public Player getAdvantagePlayer() {
 		if (player1.hasMorePoints(player2))
 			return player1;
 		else
 			return player2;
+	}
+
+	protected Player playerWithName(String wonPointPlayerName) {
+		if (player1.hasName(wonPointPlayerName))
+			return player1;
+		
+		return player2;
 	}
 
 }

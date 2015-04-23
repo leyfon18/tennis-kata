@@ -21,10 +21,7 @@ public class ParPointState extends PointState {
 
 	@Override
 	public PointState handleTransition(String wonPointPlayerName) {
-		if (player1.hasName(wonPointPlayerName)) {
-			player1.wonPoint();
-		} else
-			player2.wonPoint();
+		playerWithName(wonPointPlayerName).wonPoint();
 		return new OddPointState(player1, player2);
 	}
 
