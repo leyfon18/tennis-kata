@@ -10,23 +10,16 @@ public class OddPointState extends PointState {
 	}
 
 	@Override
-	protected String calculateScoreName() {
-		return this.getPlayer1().getScore().asWord() + "-"
-				+ this.getPlayer2().getScore().asWord();
-	}
-
-	@Override
 	public PointState handleTransition(String wonPointPlayerName) {
 		Player player = playerWithName(wonPointPlayerName);
 		player.wonPoint();
 		return transition(player);
-//		if (player1.hasName(wonPointPlayerName)) {
-//			player1.wonPoint();
-//			return transition(player1);
-//		} else{
-//			player2.wonPoint();
-//			return transition(player2);
-//			}
+	}
+
+	@Override
+	protected String calculateScoreName() {
+		return this.getPlayer1().getScore().asWord() + "-"
+				+ this.getPlayer2().getScore().asWord();
 	}
 
 	private PointState transition(Player wonPointPlayer) {
@@ -47,7 +40,6 @@ public class OddPointState extends PointState {
 			return new OddPointState(player1, player2);
 	}
 
-	// TODO test for that class.
 	private PointState chooseOddOrParTransition(Player wonPointPlayer) {
 		if (wonPointPlayer.isParWith(advanPlayer))
 

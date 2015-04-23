@@ -4,7 +4,7 @@ import com.games.Player;
 
 public class AdvantagePointState extends PointState {
 
-	protected AdvantagePointState(Player p1, Player p2) {
+	public AdvantagePointState(Player p1, Player p2) {
 		super(p1, p2);
 	}
 

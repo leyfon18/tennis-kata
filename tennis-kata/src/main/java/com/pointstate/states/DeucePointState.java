@@ -4,7 +4,7 @@ import com.games.Player;
 
 public class DeucePointState extends PointState {
 
-	protected DeucePointState(Player p1, Player p2) {
+	public DeucePointState(Player p1, Player p2) {
 		super(p1, p2);
 		// TODO Auto-generated constructor stub
 	}
